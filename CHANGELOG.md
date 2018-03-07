@@ -1,21 +1,75 @@
 # Changelog
 
 ## master
-[v6.0.2...master](https://github.com/deployphp/deployer/compare/v6.0.2...master)
+[v6.0.5...master](https://github.com/deployphp/deployer/compare/v6.0.5...master)
 
-🍰
+### Added
+- Added debug:task command to display the order of task execution [#1488]
+- Added a description to the autocomplete command [#1472]
+- Added logging of unhandled exceptions into logfile [#1481]
+- Added Symfony 4 recipe [#1437]
+
+### Fixed
+- Fixed within() to also restore the working-path when the given callback throws a Exception [#1463]
+- Fixed `pcntl_fork` check for blacklisted Ubuntu LTS boxes [#1476]
+- Fixed shared dir/file paths containing variables (`{{variable}}`)
+
+### Changed
+- Throw meaningfull exception on errors in cd() [#1480]
+- Make sure Context::pop() is called when Callback errors in on(...) function [#1513]
+- Update silverstripe recipe to support silverstripe 4
+- Show standard output in exceptions when error output is empty [#1554]
+- Improve readability of command for finding web server user [#1557]
+- Update symfony package dependencies to ~4.0 [#1559]
+
+
+## v6.0.5
+[v6.0.4...v6.0.5](https://github.com/deployphp/deployer/compare/v6.0.4...v6.0.5)
+
+### Fixed
+- Fixed `previous_release` param when `release_name` was overridden [#1455]
+
+
+## v6.0.4
+[v6.0.3...v6.0.4](https://github.com/deployphp/deployer/compare/v6.0.3...v6.0.4)
+
+### Changed
+- Added support for GroupTask in invoke() [#1364]
+- Magento2 recipe optimizes the autoloader after the DI compilation [#1365]
+- Host's `roles()` API now can accept arrays too
+- Fixed bug where wrong time format is passed to touch when deploying assets [#1390]
+- Added artisan:migrate:fresh task for laravel recipe
+- Added platform config to composer.json [#1426]
+- Moved symfony finder to dev-dependency [#1452]
+
+### Fixed
+- Fixed bug when config:hosts shows more than one table of hosts [#1403]
+- Fixed bug that inventory method does not return Proxy [#1413]
+
+
+## v6.0.3
+[v6.0.2...v6.0.3](https://github.com/deployphp/deployer/compare/v6.0.2...v6.0.3)
+
+### Changed
+- Laravel version check defaults to 5.5 if not found [#1352]
+
+### Fixed
+- Updated Laravel recipe to not run `artisan:optimize` on Laravel >= 5.5, as that command is now deprecated ([see upgrade notes](https://laravel.com/docs/5.5/upgrade)) [#1352]
+
 
 ## v6.0.2
 [v6.0.1...v6.0.2](https://github.com/deployphp/deployer/compare/v6.0.1...v6.0.2)
 
-### Fixed 
+### Fixed
 - Fixed bug with curl ssh check in _Httpie_ util
+
 
 ## v6.0.1
 [v6.0.0...v6.0.1](https://github.com/deployphp/deployer/compare/v6.0.0...v6.0.1)
 
 ### Fixed
 - Fixed stat url
+
 
 ## v6.0.0
 [v5.1.3...v6.0.0](https://github.com/deployphp/deployer/compare/v5.1.3...v6.0.0)
@@ -42,7 +96,7 @@
 - Improved environment variables management
 - Fixed `runLocally` to not cd into remote dir
 
-### Removed 
+### Removed
 - Removed `terminate_message` option
 - Removed `Result` class
 
@@ -70,7 +124,7 @@
 ## v5.1.1
 [v5.1.0...v5.1.1](https://github.com/deployphp/deployer/compare/v5.1.0...v5.1.1)
 
-### Fixed 
+### Fixed
 - Fixed bug with `self-update` warnings [#1226]
 
 
@@ -301,8 +355,27 @@
 - Fixed typo3 recipe
 - Fixed remove of shared dir on first deploy
 
-
-
+[#1559]: https://github.com/deployphp/deployer/pull/1559
+[#1557]: https://github.com/deployphp/deployer/pull/1557
+[#1554]: https://github.com/deployphp/deployer/pull/1554
+[#1521]: https://github.com/deployphp/deployer/pull/1521
+[#1513]: https://github.com/deployphp/deployer/pull/1513
+[#1488]: https://github.com/deployphp/deployer/issues/1488
+[#1481]: https://github.com/deployphp/deployer/issues/1481
+[#1480]: https://github.com/deployphp/deployer/issues/1480
+[#1476]: https://github.com/deployphp/deployer/pull/1476
+[#1472]: https://github.com/deployphp/deployer/pull/1472
+[#1463]: https://github.com/deployphp/deployer/pull/1463
+[#1455]: https://github.com/deployphp/deployer/pull/1455
+[#1452]: https://github.com/deployphp/deployer/pull/1452
+[#1437]: https://github.com/deployphp/deployer/issues/1437
+[#1426]: https://github.com/deployphp/deployer/pull/1426
+[#1413]: https://github.com/deployphp/deployer/pull/1413
+[#1403]: https://github.com/deployphp/deployer/pull/1403
+[#1390]: https://github.com/deployphp/deployer/pull/1390
+[#1365]: https://github.com/deployphp/deployer/pull/1365
+[#1364]: https://github.com/deployphp/deployer/pull/1364
+[#1352]: https://github.com/deployphp/deployer/pull/1352
 [#1311]: https://github.com/deployphp/deployer/pull/1311
 [#1300]: https://github.com/deployphp/deployer/pull/1300
 [#1299]: https://github.com/deployphp/deployer/issues/1299
